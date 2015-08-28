@@ -1,0 +1,18 @@
+db:  
+  image: mysql:latest
+  environment:
+    MYSQL_DATABASE: app_development
+    MYSQL_USER: mysql
+    DATABASE_PASSWORD: unodostres
+    MYSQL_ROOT_PASSWORD: unodostres
+    MYSQL_PORT_3306_TCP_ADDR: localhost
+    MYSQL_PORT_3306_TCP_PORT: 3306
+web:
+  build: .
+  command: bundle exec rails s -p 3000 -b '0.0.0.0'
+  volumes:
+    - ./app:/home/app
+  ports:
+    - "4000:3000"
+  links:
+    - db:mydb
