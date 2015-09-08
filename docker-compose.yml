@@ -2,10 +2,9 @@ db:
   image: mysql:latest
   environment:
     MYSQL_ROOT_PASSWORD: unodostres
-    MYSQL_DATABASE: app_development
-    MYSQL_USER: mysql
-    DATABASE_PASSWORD: unodostres
-    MYSQL_PORT_3306_TCP_ADDR: localhost
+    MYSQL_USER: root
+    MYSQL_PASSWORD: unodostres
+    MYSQL_DATABASE: app
   ports:
     - "3306:3306"
 web:
