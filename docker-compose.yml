@@ -4,13 +4,20 @@ db:
     MYSQL_ROOT_PASSWORD: unodostres
     MYSQL_USER: root
     MYSQL_PASSWORD: unodostres
-    MYSQL_DATABASE: app
+    MYSQL_DATABASE: falcon
   ports:
     - "3306:3306"
 web:
   build: .
-  command: bundle exec rails s -p 3000 -b '0.0.0.0'
+  command: foreman start
   ports:
     - "4000:3000"
   links:
-    - db
+    - db:db
+    - memcached:memcached
+  environment:
+    MEMCACHED_SERVICE: memcached
+memcached:
+  image: memcached:latest
+  ports:
+    - "11211:11211"
