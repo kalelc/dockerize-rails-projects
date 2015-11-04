@@ -20,7 +20,7 @@ RUN apt-get -y install libmysqlclient-dev
 # test install mysql client to connect
 RUN apt-get -y install mysql-client
 
-# install nginx
+# install rbenv
 
 RUN git clone https://github.com/sstephenson/rbenv.git /root/.rbenv
 RUN git clone https://github.com/sstephenson/ruby-build.git /root/.rbenv/plugins/ruby-build
@@ -44,6 +44,3 @@ RUN bundle install
 
 # expose HTTP
 EXPOSE 3000
-
-# execute rails server
-#CMD ["foreman", "start"]
