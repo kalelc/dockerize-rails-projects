@@ -6,6 +6,9 @@ Docker mysql, memcached, redis and puma services.
 docker-compose up
 ```
 
+### Preview
+![Preview](https://raw.githubusercontent.com/kalelc/docker-compose-rails/master/img/example.png)
+
 ### Database config
 #### Create database
 ```
