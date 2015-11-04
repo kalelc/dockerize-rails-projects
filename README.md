@@ -2,6 +2,12 @@
 Docker mysql, memcached, redis and puma services.
 
 ### Build the project
+
+Create container only data
+```
+docker run -v /var/lib/mysql --name mysql_data busybox true
+```
+Start containers with docker-composer
 ```
 docker-compose up
 ```
