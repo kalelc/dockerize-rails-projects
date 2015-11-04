@@ -1,3 +1,12 @@
+web:
+  build: ./web
+  command: foreman start
+  ports:
+    - "4000:3000"
+  links:
+    - db:db
+    - memcached:memcached
+    - redis:redis
 db:  
   image: mysql:latest
   environment:
@@ -7,17 +16,12 @@ db:
     MYSQL_DATABASE: falcon
   ports:
     - "3306:3306"
-web:
-  build: .
-  command: foreman start
-  ports:
-    - "4000:3000"
-  links:
-    - db:db
-    - memcached:memcached
-  environment:
-    MEMCACHED_SERVICE: memcached
+  volumes_from:
+    - mysql_data
 memcached:
   image: memcached:latest
   ports:
     - "11211:11211"
+redis:
+  image: redis
+
