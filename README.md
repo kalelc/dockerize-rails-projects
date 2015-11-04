@@ -1,5 +1,14 @@
 # Docker with Rails App
-Docker mysql, memcached, redis and puma services.
+Project to deploy apps with rails.
+
+> **Features:**
+
+> - Rbenv.
+> - Mysql.
+> - Redis.
+> - memcached.
+> - Puma.
+> - Foreman.
 
 ### Build the project
 
