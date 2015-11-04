@@ -1,4 +1,4 @@
-# Docker to Rails App
+# Docker with Rails App
 Docker mysql, memcached, redis and puma services.
 
 ### Build the project
