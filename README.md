@@ -7,6 +7,7 @@ Project to deploy apps with rails.
 > - Mysql.
 > - Redis.
 > - memcached.
+> - Nginx.
 > - Puma.
 > - Foreman.
 
