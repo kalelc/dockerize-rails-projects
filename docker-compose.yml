@@ -1,9 +1,9 @@
 nginx:
-  build: ./nginx/
+  build: ./nginx
   ports:
     - "80:80"
   volumes:
-    - /home/app
+    - /www/app
   volumes_from:
     - web
   links:
@@ -11,7 +11,9 @@ nginx:
 web:
   build: ./web
   ports:
-    - "4000:3000"
+    - "3000:3000"
+  volumes:
+    - /home/app
   links:
     - db:db
     - memcached:memcached

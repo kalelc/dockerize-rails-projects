@@ -34,7 +34,7 @@ RUN rbenv global 2.1.5
 RUN gem install rails -v 4.0.11
 
 # add app
-ADD app.tar.gz /home/
+ADD app/ /home/app
 
 # execute bundle install
 WORKDIR /home/app
