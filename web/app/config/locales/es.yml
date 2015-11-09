@@ -1,0 +1,28 @@
+es:
+  activerecord:
+    models:
+      breed: raza
+  actions:
+    create: crear
+    show: ver
+    back: regresar
+    edit: editar
+    destroy: eliminar
+  breed:
+    name: nombre
+    size: tamaño
+    weight: peso
+    country_id: pais
+    url_info: url info
+    description: descripcion
+    created_at: creado
+    updated_at: actualizado
+    listing: listado de razas
+    new: crear raza
+    editing: editar raza
+  helpers:
+    submit:
+      breed:
+        create: "crear %{model}"
+        update: "actualizar %{model}"
+
