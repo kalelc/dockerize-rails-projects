@@ -18,7 +18,7 @@ web:
     - db:db
     - memcached:memcached
     - redis:redis
-  command: bundle exec puma -e development -p 3000
+  command: foreman start
 db:  
   image: mysql:latest
   environment:

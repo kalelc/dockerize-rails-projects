@@ -33,14 +33,16 @@ RUN rbenv global 2.1.5
 
 RUN gem install rails -v 4.0.11
 
+WORKDIR /tmp
+ADD app/Gemfile Gemfile
+ADD app/Gemfile.lock Gemfile.lock
+RUN bundle install
+
 # add app
 ADD app/ /home/app
 
 # execute bundle install
 WORKDIR /home/app
-
-# install app
-RUN bundle install
 
 # expose HTTP
 EXPOSE 3000
