@@ -1,2 +1,2 @@
-web: bundle exec rails s -p 3000
-log: tail -f log/puma.stderr.log log/development.log log/puma.stdout.log 
+app: bundle exec puma -e production -b tcp://127.0.0.1:4000
+log: tail -f log/development.log
