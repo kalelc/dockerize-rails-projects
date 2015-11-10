@@ -3,7 +3,7 @@ nginx:
   ports:
     - "80:80"
   volumes:
-    - /www/app
+    - /home/app
   volumes_from:
     - web
   links:
@@ -18,7 +18,7 @@ web:
     - db:db
     - memcached:memcached
     - redis:redis
-  command: foreman start
+  command: bundle exec puma -e development -p 3000
 db:  
   image: mysql:latest
   environment:

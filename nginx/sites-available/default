@@ -1,11 +1,11 @@
 upstream rails {
-  server web fail_timeout=0;
+  server web:3000 fail_timeout=0;
 }
 
 server {
   listen 80;
   client_max_body_size 2M;
-  server_name localhost;
+  server_name web;
   keepalive_timeout 5;
   root /home/app/public;
   access_log /var/log/nginx/access.log;
@@ -18,7 +18,7 @@ server {
   }
 
   location / {
-    try_files $uri/index.html $uri.html $uri @app;
+    try_files $uri/index.html $uri.html $uri @rails;
     error_page 404              /404.html;
     error_page 422              /422.html;
     error_page 500 502 503 504  /500.html;

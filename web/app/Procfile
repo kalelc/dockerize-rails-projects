@@ -1,2 +1,2 @@
-web: bundle exec puma -e development -C config/puma.rb
+web: bundle exec rails s -p 3000
 log: tail -f log/puma.stderr.log log/development.log log/puma.stdout.log 
