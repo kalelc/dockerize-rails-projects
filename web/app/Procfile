@@ -1,2 +1,1 @@
 app_1: bundle exec puma -e development -b tcp://0.0.0.0:3000
-log: tail -f log/development.log
