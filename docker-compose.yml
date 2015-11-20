@@ -3,7 +3,7 @@ nginx:
   ports:
     - "80:80"
   volumes:
-    - /home/app
+    - /home/app:/home/
   volumes_from:
     - web
   links:
@@ -12,12 +12,12 @@ web:
   build: ./web
   ports:
     - "3000:3000"
-  volumes:
-    - /home/app
   links:
     - db:db
     - memcached:memcached
     - redis:redis
+  volumes:
+    - /home/app
   command: foreman start
 db:  
   image: mysql:latest

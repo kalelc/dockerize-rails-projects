@@ -1,5 +1,5 @@
 upstream rails {
-  server web:3000 fail_timeout=0;
+  server unix:/home/app/shared/sockets/puma.sock fail_timeout=0;
 }
 
 server {
