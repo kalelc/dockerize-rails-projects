@@ -1,1 +1,4 @@
-app_1: bundle exec puma -e development -b tcp://0.0.0.0:3000
+app0: bundle exec puma -e development -b tcp://0.0.0.0:3000
+app1: bundle exec puma -e development -b tcp://0.0.0.0:3001
+app2: bundle exec puma -e development -b tcp://0.0.0.0:3002
+app3: bundle exec puma -e development -b tcp://0.0.0.0:3003

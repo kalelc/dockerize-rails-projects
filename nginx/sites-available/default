@@ -1,5 +1,8 @@
 upstream rails {
-  server web:3000 fail_timeout=0;
+  server weba:3000 fail_timeout=0;
+  server weba:3001 fail_timeout=0;
+  server weba:3002 fail_timeout=0;
+  server weba:3003 fail_timeout=0;
 }
 
 server {

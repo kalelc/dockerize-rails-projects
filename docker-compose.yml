@@ -5,13 +5,16 @@ nginx:
   volumes:
     - /home/app
   volumes_from:
-    - web
+    - weba
   links:
-    - web:web
-web:
+    - weba:weba
+weba:
   build: ./web
   ports:
     - "3000:3000"
+    - "3001:3000"
+    - "3002:3000"
+    - "3003:3000"
   volumes:
     - /home/app
   links:
