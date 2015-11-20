@@ -73,3 +73,5 @@ gem "pry"
 # haml
 gem "haml"
 gem "html2haml"
+
+gem 'bower-rails'

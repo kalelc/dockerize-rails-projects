@@ -33,10 +33,16 @@ RUN rbenv global 2.1.5
 
 RUN gem install rails -v 4.0.11
 
+# install npm package
+RUN apt-get -y install nodejs nodejs-legacy npm
+
 WORKDIR /tmp
 ADD app/Gemfile Gemfile
 ADD app/Gemfile.lock Gemfile.lock
 RUN bundle install
+
+# install bower
+RUN npm install -g bower
 
 # add app
 ADD app/ /home/app
