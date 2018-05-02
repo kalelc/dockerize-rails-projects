@@ -1,54 +1,35 @@
-FROM ubuntu:14.04
-MAINTAINER Andres Colonia "andreskal@gmail.com"
+FROM ruby:2.3.3
+MAINTAINER andreskal@gmail.com
 
-RUN locale-gen en_US.UTF-8
+ENV RAILS_ENV development
 
-ENV HOME /root
-ENV PATH $HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
-ENV SHELL /bin/bash
-ENV LANG en_US.UTF-8
-ENV LC_ALL en_US.UTF-8
+RUN apt-get update && apt-get install -y \
+zlib1g-dev \
+build-essential \
+libssl-dev \
+libyaml-dev \
+libsqlite3-dev \
+sqlite3 \
+libxml2-dev \
+libxslt1-dev \
+libcurl4-openssl-dev \
+python-software-properties \
+libffi-dev \
+nodejs-legacy \
+libreadline-dev \
+libmysqlclient-dev
 
-RUN apt-get -y update
+RUN mkdir -p /app
+RUN mkdir -p /app/tmp/pids
+RUN mkdir -p /app/sockets
 
-# install ruby dependencies
-RUN apt-get -y install git curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev
+WORKDIR /app
 
-# install mysql dev
-RUN apt-get -y install libmysqlclient-dev
+COPY Gemfile Gemfile.lock ./
+RUN gem install bundler
 
-# test install mysql client to connect
-RUN apt-get -y install mysql-client
+RUN bundle install --jobs 20 --retry 5  --without test production
 
-# install rbenv
+COPY . ./
 
-RUN git clone https://github.com/sstephenson/rbenv.git /root/.rbenv
-RUN git clone https://github.com/sstephenson/ruby-build.git /root/.rbenv/plugins/ruby-build
-
-RUN echo 'eval "$(rbenv init -)"' >> $HOME/.profile
-RUN echo 'eval "$(rbenv init -)"' >> $HOME/.bashrc
-
-RUN rbenv install 2.1.5
-RUN rbenv global 2.1.5
-
-RUN gem install rails -v 4.0.11
-
-# install npm package
-RUN apt-get -y install nodejs nodejs-legacy npm
-
-WORKDIR /tmp
-ADD app/Gemfile Gemfile
-ADD app/Gemfile.lock Gemfile.lock
-RUN bundle install
-
-# install bower
-RUN npm install -g bower
-
-# add app
-ADD app/ /home/app
-
-# execute bundle install
-WORKDIR /home/app
-
-# expose HTTP
-EXPOSE 3000
+CMD bundle exec puma

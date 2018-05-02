@@ -1,34 +1,14 @@
-nginx:
-  build: ./nginx
-  ports:
-    - "80:80"
-  volumes_from:
-    - web
-  links:
-    - web:web
-web:
-  build: ./web
-  ports:
-    - "3000:3000"
-  links:
-    - db:db
-    - memcached:memcached
-    - redis:redis
-  command: foreman start
-db:  
-  image: mysql:latest
-  environment:
-    MYSQL_ROOT_PASSWORD: unodostres
-    MYSQL_USER: root
-    MYSQL_PASSWORD: unodostres
-    MYSQL_DATABASE: falcon
-  ports:
-    - "3306:3306"
-  volumes_from:
-    - mysql_data
-memcached:
-  image: memcached:latest
-  ports:
-    - "11211:11211"
-redis:
-  image: redis
+version: '3.6'
+services:
+  app:
+    image: puma
+    volumes:
+      - app:/app
+  nginx:
+    image: nginx
+    ports:
+      - 80:80
+    volumes:
+      - app:/app
+volumes:
+  app:
