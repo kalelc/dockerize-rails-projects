@@ -10,8 +10,19 @@ Include:
 
 #### Build the project
 
-`docker build -t puma web/.`
-`docker build -t nginx nginx/.`
+Build puma container
+
+```
+docker build -t puma web/.`
+```
+
+build nginx container
+
+```
+docker build -t nginx nginx/.`
+```
+
+Start containers with docker-compose
 
 ```
 docker-compose up
@@ -28,25 +39,32 @@ Build several containers to run Rails Application, the main features are:
 
 #### Build the project
 
-##### Create container only data
+Create container only data
 
 ```
 docker run -v /var/lib/mysql --name mysql_data busybox true
 ```
-Start containers with docker-composer
+
+Start containers with docker-compose
+
 ```
 docker-compose up
 ```
 
-##### Create database
+Create database
+
 ```
 docker-compose run web bundle exec rake db:create
 ```
-##### Create tables
+
+Create tables
+
 ```
 docker-compose run web bundle exec rake db:migrate
 ```
-##### Import data test
+
+Import data test
+
 ```
 docker-compose run web bundle exec rake db:seed
 ```
