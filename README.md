@@ -1,19 +1,18 @@
-# Docker with Rails App
-Project to deploy apps with rails.
+# Releases
+ 
+## 1.0 Docker to Rails using rbenv
 
-> **Features:**
+Build several containers to run Rails Application, the main features are:
 
-> - Rbenv.
-> - Mysql.
-> - Redis.
-> - memcached.
-> - Nginx.
-> - Puma.
-> - Foreman.
+- Build an own Dockerfile for how to work with Docker.
+- Working with multiples containers using docker-compose.
+- Using links and environment's variables in docker-compose.
+- Persist MySQL data in volumes.
 
 ### Build the project
 
 Create container only data
+
 ```
 docker run -v /var/lib/mysql --name mysql_data busybox true
 ```
@@ -22,10 +21,8 @@ Start containers with docker-composer
 docker-compose up
 ```
 
-### Preview
-![Preview](https://raw.githubusercontent.com/kalelc/docker-compose-rails/master/img/example.png)
-
 ### Database config
+
 #### Create database
 ```
 docker-compose run web bundle exec rake db:create
