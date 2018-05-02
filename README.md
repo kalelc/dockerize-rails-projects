@@ -1,5 +1,22 @@
 ## Releases
  
+### 2.0 Docker with docker-compose 3.6 using
+
+Include: 
+
+- Oficial version's images to containers.
+- Use containers like services.
+- Create volumes to use with services. 
+
+#### Build the project
+
+`docker build -t puma web/.`
+`docker build -t nginx nginx/.`
+
+```
+docker-compose up
+```
+ 
 ### 1.0 Docker to Rails using rbenv
 
 Build several containers to run Rails Application, the main features are:
