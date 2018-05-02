@@ -13,13 +13,13 @@ Include:
 Build puma container
 
 ```
-docker build -t puma web/.`
+docker build -t puma web/.
 ```
 
 build nginx container
 
 ```
-docker build -t nginx nginx/.`
+docker build -t nginx nginx/.
 ```
 
 Start containers with docker-compose
