@@ -1,0 +1,8 @@
+---
+:concurrency: 20
+:pidfile: ./pids/sidekiq.pid
+:timeout: 180
+:logfile: ./log/sidekiq.log
+:queues:
+  - [default, 2]
+  - [low, 1]

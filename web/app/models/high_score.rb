@@ -1,0 +1,2 @@
+class HighScore < ApplicationRecord
+end
