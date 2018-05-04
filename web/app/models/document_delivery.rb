@@ -1,2 +1,0 @@
-class DocumentDelivery < ApplicationRecord
-end
