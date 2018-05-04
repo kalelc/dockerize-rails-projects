@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  root to: 'activities#index'
+  resources :high_scores
+  root to: 'high_scores#index'
 end
