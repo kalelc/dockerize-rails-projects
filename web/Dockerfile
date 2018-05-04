@@ -28,7 +28,7 @@ WORKDIR /app
 COPY Gemfile Gemfile.lock ./
 RUN gem install bundler
 
-RUN bundle install --jobs 20 --retry 5  --without test production
+RUN bundle install --jobs 20 --retry 5  --without test
 
 COPY . ./
 
