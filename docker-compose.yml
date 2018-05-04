@@ -1,14 +1,21 @@
 version: '3.6'
 services:
   app:
-    image: puma
+    image: kalelc/puma
     volumes:
       - app:/app
   nginx:
-    image: nginx
+    image: kalelc/nginx
     ports:
       - 80:80
     volumes:
       - app:/app
+  mysql:
+    image: mysql:5.6
+    volumes:
+      - mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
 volumes:
   app:
+  mysql:
