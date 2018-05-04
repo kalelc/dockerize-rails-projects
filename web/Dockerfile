@@ -20,7 +20,7 @@ libreadline-dev \
 libmysqlclient-dev
 
 RUN mkdir -p /app
-RUN mkdir -p /app/tmp/pids
+RUN mkdir -p /app/pids
 RUN mkdir -p /app/sockets
 
 WORKDIR /app
