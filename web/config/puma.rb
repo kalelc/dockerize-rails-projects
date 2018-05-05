@@ -1,5 +1,5 @@
 # Workers and threads
-workers 2
+workers 1
 threads 5, 5
 
 # Base folder
