@@ -1,7 +1,9 @@
 FROM ruby:2.3.3
 MAINTAINER andreskal@gmail.com
 
-ENV RAILS_ENV development
+ARG ENVIRONMENT
+
+ENV RAILS_ENV $ENVIRONMENT
 
 RUN apt-get update && apt-get install -y \
 zlib1g-dev \
