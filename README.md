@@ -1,19 +1,19 @@
 ## Releases
- 
+
 ### 2.0 Docker with docker-compose 3.6 using
 
-Include: 
+Include:
 
 - Oficial version's images to containers.
 - Use containers like services.
-- Create volumes to use with services. 
+- Create volumes to use with services.
 
 #### Build the project
 
-Build puma container
+Build puma container. If you want to build an image with a specific environment, is possible pass it by argument.
 
 ```
-docker build -t puma web/.
+docker build --build-arg ENVIRONMENT=development -t puma web/.
 ```
 
 build nginx container
@@ -27,7 +27,7 @@ Start containers with docker-compose
 ```
 docker-compose up
 ```
- 
+
 ### 1.0 Docker to Rails using rbenv
 
 Build several containers to run Rails Application, the main features are:
