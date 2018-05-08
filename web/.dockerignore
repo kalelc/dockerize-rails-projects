@@ -1,5 +1,6 @@
 .git
 tmp/*
+sockets/*
 log/*
 spec/*
 dump.rdb
