@@ -1,9 +1,6 @@
 FROM ruby:2.3.3
 MAINTAINER andreskal@gmail.com
 
-ARG ENVIRONMENT
-
-ENV RAILS_ENV $ENVIRONMENT
 
 RUN apt-get update && apt-get install -y \
 zlib1g-dev \
@@ -33,5 +30,9 @@ RUN gem install bundler
 RUN bundle install --jobs 20 --retry 5  --without test
 
 COPY . ./
+
+ARG ENVIRONMENT
+
+ENV RAILS_ENV $ENVIRONMENT
 
 CMD bundle exec puma
