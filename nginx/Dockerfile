@@ -1,3 +1,4 @@
-FROM nginx:1.10
+FROM nginx
 
-COPY nginx.conf /etc/nginx/nginx.conf
+RUN rm -f /etc/nginx/conf.d/*
+ADD nginx.conf /etc/nginx/conf.d/web.conf
