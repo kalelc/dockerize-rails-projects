@@ -1,11 +1,11 @@
 version: '3.6'
 services:
   app:
-    image: kalelc/puma
+    image: kalelc/demo-puma
     volumes:
       - app:/app
   nginx:
-    image: kalelc/nginx
+    image: kalelc/demo-nginx
     ports:
       - 80:80
     volumes:
