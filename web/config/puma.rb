@@ -11,7 +11,8 @@ environment ENV.fetch("RAILS_ENV") { "development" }
 # Logging
 stdout_redirect "#{app_dir}/log/puma.stdout.log", "#{app_dir}/log/puma.stderr.log", true
 
-bind "unix://#{app_dir}/sockets/puma.sock"
+# TCP
+port 3000
 
 # reduces the startup time of individual Puma worker processes
 preload_app!
